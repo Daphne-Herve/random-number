@@ -17,13 +17,13 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        let random = randomNumber(1, 10)
+        let random = randomNumber(1, 100)
         console.log(random);
         let guess = prompt("pick a number from 1 to 100");
         let life = 1;
         let found = false;
 
-        while (!found) {
+        while (!found && life < 5){
             life += 1;
             
             if (guess > random){
@@ -37,8 +37,15 @@
             }
         }
 
-        document.write('<h2>GG!</H2>');
-        document.write('<h2>You played ' + life + ' times</H2>');
+        if (found){
+            document.write('<h2>GG!</H2>');
+            document.write('<h2>You played ' + life + ' times</H2>');
+        }
+        else{
+            document.write('<h2>You lose</H2>');
+            document.write('<h2>You played ' + life + ' times</H2>');
+        }
+        
 
     </script>
     
