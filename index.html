@@ -27,10 +27,10 @@
             life += 1;
             
             if (guessAsInt > random){
-                guess = prompt("pick a SMALLER number!"); 
+                guessAsInt = prompt("pick a SMALLER number!"); 
             }
             else if (guessAsInt < random){
-                guess = prompt("pick a BIGGER number!");
+                guessAsInt = prompt("pick a BIGGER number!");
             }
             else{
                 found = true;
@@ -38,21 +38,23 @@
         }
 
 
-        if (guessAsInt > 100 || guessAsInt < 1){
-            document.write('<h2>Number out of boundaries</H2>');
-            document.write('<h2>Try again</H2>');
-        }
-        else if (found){
+        if (found){
             document.write('<h2>GG!</H2>');
             document.write('<h2>You played ' + life + ' times</H2>');
         }
-        else if (!Number.isInteger(guessAsInt)){
-            document.write('<h2>RTFM</H2>');
-        }
+        
         else{
-            document.write('<h2>You lose</H2>');
-            document.write('<h2>You played ' + life + ' times</H2>');
-            console.log(guessAsInt);
+            if (guessAsInt > 100 || guessAsInt < 1){
+                document.write('<h2>Number out of boundaries</H2>');
+                document.write('<h2>Try again</H2>');
+            }
+            else if (Number.isNaN(guessAsInt)){
+                document.write('<h2>RTFM</H2>');
+            }
+            else{
+                document.write('<h2>You lose</H2>');
+                document.write('<h2>You played ' + life + ' times</H2>');
+            }
         }
         
 
