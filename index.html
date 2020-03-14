@@ -12,18 +12,18 @@
     
     <script>
 
-        function randomNumber(min, max)
-        {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        function randomNumber(max){
+            return Math.floor(Math.random() * max) + 1;
         }
 
-        let random = randomNumber(1, 100)
+        let random = randomNumber(100)
         let guess = prompt("pick a number from 1 to 100");
         let guessAsInt = parseInt(guess);
-        let life = 1;
+        let life = 0;
         let found = false;
+        console.log(random);
         
-        while (!found && life < 5 && guessAsInt < 100 && guessAsInt > 1){
+        while (!found && life < 5 && guessAsInt < 100 && guessAsInt > 0){
             life += 1;
             
             if (guessAsInt > random){
@@ -42,7 +42,6 @@
             document.write('<h2>GG!</H2>');
             document.write('<h2>You played ' + life + ' times</H2>');
         }
-        
         else{
             if (guessAsInt > 100 || guessAsInt < 1){
                 document.write('<h2>Number out of boundaries</H2>');
