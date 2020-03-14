@@ -18,18 +18,18 @@
         }
 
         let random = randomNumber(1, 100)
-        console.log(random);
         let guess = prompt("pick a number from 1 to 100");
+        let guessAsInt = parseInt(guess);
         let life = 1;
         let found = false;
-
-        while (!found && life < 5 && guess > 100 && guess < 1){
+        
+        while (!found && life < 5 && guessAsInt < 100 && guessAsInt > 1){
             life += 1;
-
-            if (guess > random){
+            
+            if (guessAsInt > random){
                 guess = prompt("pick a SMALLER number!"); 
             }
-            else if (guess < random){
+            else if (guessAsInt < random){
                 guess = prompt("pick a BIGGER number!");
             }
             else{
@@ -37,7 +37,8 @@
             }
         }
 
-        if (guess > 100 || guess < 1){
+
+        if (guessAsInt > 100 || guessAsInt < 1){
             document.write('<h2>Number out of boundaries</H2>');
             document.write('<h2>Try again</H2>');
         }
@@ -45,9 +46,13 @@
             document.write('<h2>GG!</H2>');
             document.write('<h2>You played ' + life + ' times</H2>');
         }
+        else if (!Number.isInteger(guessAsInt)){
+            document.write('<h2>RTFM</H2>');
+        }
         else{
             document.write('<h2>You lose</H2>');
             document.write('<h2>You played ' + life + ' times</H2>');
+            console.log(guessAsInt);
         }
         
 
