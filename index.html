@@ -23,9 +23,9 @@
         let life = 1;
         let found = false;
 
-        while (!found && life < 5){
+        while (!found && life < 5 && guess > 100 && guess < 1){
             life += 1;
-            
+
             if (guess > random){
                 guess = prompt("pick a SMALLER number!"); 
             }
@@ -37,7 +37,11 @@
             }
         }
 
-        if (found){
+        if (guess > 100 || guess < 1){
+            document.write('<h2>Number out of boundaries</H2>');
+            document.write('<h2>Try again</H2>');
+        }
+        else if (found){
             document.write('<h2>GG!</H2>');
             document.write('<h2>You played ' + life + ' times</H2>');
         }
