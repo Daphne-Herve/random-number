@@ -3,61 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title></title>
 
 </head>
 <body>
 
     <h1>Guess the number</h1>
+
+    <label for="toggler">Enable dark mode</label>
+    <input id="toggler" type="checkbox">
     
-    <script>
-
-        function randomNumber(max){
-            return Math.floor(Math.random() * max) + 1;
-        }
-
-        let random = randomNumber(100)
-        let guess = prompt("pick a number from 1 to 100");
-        let guessAsInt = parseInt(guess);
-        let life = 0;
-        let found = false;
-        console.log(random);
-        
-        while (!found && life < 5 && guessAsInt < 100 && guessAsInt > 0){
-            life += 1;
-            
-            if (guessAsInt > random){
-                guessAsInt = prompt("pick a SMALLER number!"); 
-            }
-            else if (guessAsInt < random){
-                guessAsInt = prompt("pick a BIGGER number!");
-            }
-            else{
-                found = true;
-            }
-        }
 
 
-        if (found){
-            document.write('<h2>GG!</H2>');
-            document.write('<h2>You played ' + life + ' times</H2>');
-        }
-        else{
-            if (guessAsInt > 100 || guessAsInt < 1){
-                document.write('<h2>Number out of boundaries</H2>');
-                document.write('<h2>Try again</H2>');
-            }
-            else if (Number.isNaN(guessAsInt)){
-                document.write('<h2>RTFM</H2>');
-            }
-            else{
-                document.write('<h2>You lose</H2>');
-                document.write('<h2>You played ' + life + ' times</H2>');
-            }
-        }
-        
 
-    </script>
+
+
+
+
+
+    
+    <script src="script.js"></script>
     
 </body>
 </html>
